@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Bibliotecário</title>
+    <link rel="stylesheet" href="../styles/geral.css">
+    <link rel="stylesheet" href="../styles/leitor.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        main {
+            margin-left: 20rem;
+            padding: 2rem;
+            width: calc(100% - 20rem);
+        }
+
+        .secao-gerenciamento {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .resultados-busca {
+            border-top: 1px solid #ccc;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .item-resultado {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+        }
+
+        .item-resultado img {
+            width: 50px;
+            height: 75px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .item-resultado .info {
+            flex-grow: 1;
+        }
+
+        .item-resultado .acoes {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-resultado .acoes input {
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <header>
+            <nav>
+                <div id="info-perfil">
+                    <div id="logo">
+                        <img src="../assets/img/LOGO-SYMBOL.svg" alt="Logo da Biblioteca">
+                    </div>
+                    <a href="#catalogo">Gerenciar Acervo</a>
+                    <a href="#meus-emprestimos">Gerenciar Empréstimos</a>
+                </div>
+                <div id="perfil">
+                    <div id="img-perfil">
+                        <img src="../assets/img/User.svg" alt="Ícone do perfil">
+                    </div>
+                    <article id="info-perfil">
+                        <p id="nome-usuario-display">Carregando...</p>
+                        <p id="perfil-usuario-display">Carregando...</p>
+                    </article>
+                    <div id="logout">
+                        <img src="../assets/img/Logout - Icone.svg" alt="Ícone de logout">
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="gerenciamento-acervo">
+
+                <h1>Gerenciamento de Acervo</h1>
+
+                <div class="secao-gerenciamento">
+                    <h2>Adicionar Livros ao Acervo</h2>
+                    <p>Busque na API do Google para encontrar e adicionar livros à sua coleção.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" id="campo-busca-api" class="form-control"
+                            placeholder="Digite o título, autor ou ISBN do livro...">
+                        <button class="btn btn-primary" type="button" id="btn-busca-api">Buscar</button>
+                    </div>
+
+                    <div id="container-resultados-api" class="resultados-busca">
+                        <p class="text-muted">Os resultados da busca aparecerão aqui.</p>
+                    </div>
+                </div>
+
+                <div class="secao-gerenciamento">
+                    <h2>Acervo da Biblioteca</h2>
+                    <p>Gerencie os livros que sua biblioteca possui.</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Ano</th>
+                                    <th>Estoque</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-acervo-corpo">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bibliotecario.js"></script>
+</body>
+
+</html>

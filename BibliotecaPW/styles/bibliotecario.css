@@ -1,0 +1,6 @@
+.lista-livros{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}

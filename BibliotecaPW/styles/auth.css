@@ -1,0 +1,46 @@
+.auth-container {
+    display: flex;
+    height: 100vh;
+}
+
+.banner-section {
+    flex: 1;
+    background-color: #1B1B1B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    padding: 2rem;
+}
+
+.banner-section img {
+    max-width: 12rem;
+    margin-bottom: 1rem;
+}
+
+.form-section {
+    flex: 1;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-section h2 {
+    margin-bottom: 2rem;
+    color: #1B1B1B;
+}
+
+.form-control {
+    font-size: 1.4rem;
+}
+
+.btn-custom {
+    background-color: #FFA616;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #FFCA76!important;
+}
