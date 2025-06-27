@@ -31,14 +31,10 @@ async function handleLogin(event) {
             throw new Error(data.mensagem);
         }
         
-        // --- ALTERAÇÃO PRINCIPAL AQUI ---
-        // 1. Avisa sobre o sucesso
         alert(data.mensagem); 
 
-        // 2. Salva o objeto do usuário no sessionStorage (convertido para texto JSON)
         sessionStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
 
-        // 3. Redireciona para a página correta baseada no perfil
         if (data.usuario.perfil === 'leitor') {
             window.location.href = 'leitor.html';
         } else if (data.usuario.perfil === 'bibliotecario') {
@@ -60,11 +56,9 @@ async function handleRegister(event) {
     const confirmarSenha = document.getElementById('register-confirmar-senha').value; // Pega o valor da confirmação
     const perfil = document.getElementById('register-perfil').value;
 
-    // --- NOVA VALIDAÇÃO ---
-    // Verifica se as senhas coincidem antes de enviar
     if (senha !== confirmarSenha) {
         alert('As senhas não coincidem. Por favor, tente novamente.');
-        return; // Para a execução
+        return; 
     }
 
     if (!perfil) {
@@ -85,8 +79,8 @@ async function handleRegister(event) {
             throw new Error(data.mensagem);
         }
 
-        alert(data.mensagem); // "Usuário registrado com sucesso!"
-        window.location.href = 'login.html'; // Redireciona para a página de login
+        alert(data.mensagem); 
+        window.location.href = 'login.html';
 
     } catch (error) {
         console.error('Erro no registro:', error);

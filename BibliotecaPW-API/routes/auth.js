@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 
-// Rota de Login: POST /api/login
 router.post('/login', async (req, res) => {
     const { email, senha } = req.body;
     const pool = req.pool;
@@ -27,7 +26,6 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ mensagem: 'Credenciais inválidas.' });
         }
 
-        // Login bem-sucedido! (No futuro, aqui se gera um token JWT)
         res.status(200).json({
             mensagem: 'Login bem-sucedido!',
             usuario: { id: usuario.id, nome: usuario.nome, email: usuario.email, perfil: usuario.perfil }
@@ -40,7 +38,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Rota de Registro: POST /api/register
 router.post('/register', async (req, res) => {
     const { nome, email, senha, perfil } = req.body;
     const pool = req.pool;

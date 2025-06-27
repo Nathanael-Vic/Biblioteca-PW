@@ -1,157 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <title>Página do Leitor</title>
     <link rel="stylesheet" href="../styles/geral.css">
     <link rel="stylesheet" href="../styles/leitor.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        main { margin-left: 20rem; padding: 2rem; width: calc(100% - 20rem); }
+        .secao { display: none; }
+    </style>
 </head>
-<!-- HTML -->
-
 <body>
     <div id="root">
-        <!-- Menu Lateral -->
         <header>
             <nav>
                 <div id="info-perfil">
-                    <div id="logo">
-                        <img src="../assets/img/LOGO-SYMBOL.svg" alt="">
-                    </div>
-                    <a href="#catalogo">Catálogo</a>
-                    <a href="#meus-emprestimos">Meus Empréstimos</a>
+                    <div id="logo"><img src="../assets/img/LOGO-SYMBOL.svg" alt="Logo"></div>
+                    <a href="#" onclick="event.preventDefault(); mostrarSecao('secao-catalogo')">Catálogo</a>
+                    <a href="#" onclick="event.preventDefault(); mostrarSecao('secao-meus-emprestimos')">Meus Empréstimos</a>
                 </div>
-
                 <div id="perfil">
-                    <div id="img-perfil">
-                        <img src="../assets/img/User.svg" alt="">
-                    </div>
-
+                    <div id="img-perfil"><img src="../assets/img/User.svg" alt="Ícone de perfil"></div>
                     <article id="info-perfil">
                         <p id="nome-usuario-display">Carregando...</p>
                         <p id="perfil-usuario-display">Leitor</p>
                     </article>
-
-                    <div id="logout">
-                        <img src="../assets/img/Logout - Icone.svg" alt="">
-                    </div>
+                    <div id="logout"><img src="../assets/img/Logout - Icone.svg" alt="Ícone de logout"></div>
                 </div>
             </nav>
         </header>
 
-        <!-- Conteúdo Meus Empéstimos-->
         <main>
-            <section id="catalogo">
+            <section id="secao-catalogo" class="secao">
                 <article class="section-titulo">
                     <h3>Catálogo de Livros</h3>
                     <p>Confira os livros disponíveis para reserva</p>
                 </article>
-
                 <section id="section-favoritos-do-mes" class="carrossel-livros">
-                    <article class="section-titulo">
-                        <h3>Favoritos do Mês</h3>
-                    </article>
-                    <div id="carouselExampleDark1" class="carousel carousel-dark slide">
-                        <div class="carousel-inner">
-                            <div class="card" style="display: none;" id="card-molde-favoritos">
-                                <img src="" class="card-img-top" alt="Capa do livro">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título do Livro</h5>
-                                    <p class="card-text">
-                                        ID: #0000 <br>
-                                        Autor: Nome do Autor <br>
-                                        Ano: 0000 <br>
-                                        Quantidade Disponível: 0
-                                    </p>
-                                    <a href="#" class="btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal-placeholder">Visualizar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark1"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark1"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    <article class="section-titulo"><h3>Favoritos do Mês</h3></article>
+                    <div id="carouselExampleDark1" class="carousel carousel-dark slide" data-bs-interval="false">
+                        <div class="carousel-inner"></div>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark1" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                     </div>
                 </section>
-
                 <section id="section-novidades" class="carrossel-livros">
-                    <article class="section-titulo">
-                        <h3>Novidades da Biblioteca</h3>
-                    </article>
-                    <div id="carouselNovidades" class="carousel carousel-dark slide">
-                        <div class="carousel-inner">
-                            <div class="card" style="display: none;" id="card-molde-novidades">
-                                <img src="" class="card-img-top" alt="Capa do livro">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título do Livro</h5>
-                                    <p class="card-text">
-                                        ID: #0000 <br>
-                                        Autor: Nome do Autor <br>
-                                        Ano: 0000 <br>
-                                        Quantidade Disponível: 0
-                                    </p>
-                                    <a href="#" class="btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal-placeholder">Visualizar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNovidades"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselNovidades"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    <article class="section-titulo"><h3>Novidades da Biblioteca</h3></article>
+                    <div id="carouselNovidades" class="carousel carousel-dark slide" data-bs-interval="false">
+                        <div class="carousel-inner"></div>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselNovidades" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                     </div>
                 </section>
             </section>
 
-            <section id="meus-emprestimos">
+            <section id="secao-meus-emprestimos" class="secao">
                 <article class="section-titulo">
                     <h3>Meus Empréstimos</h3>
                     <p>Confira os livros que você já reservou</p>
                 </article>
-                <table id="tabela-emprestimos" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Livro</th>
-                            <th>Data de reserva</th>
-                            <th>Status</th>
-                            <th>Data de devolução</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="id-livro">8873</th>
-                            <td>A Garota do Lago</td>
-                            <td>28/06/2025</td>
-                            <td>Reservado</td>
-                            <td>19/07/2025</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Livro</th>
+                                <th>Data do Empréstimo</th>
+                                <th>Devolução Prevista</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-meus-emprestimos-corpo"></tbody>
+                    </table>
+                </div>
             </section>
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-
-    <script src="/assets/js/leitor.js"></script>
-
+    
+    <div id="container-modais-leitor"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/leitor.js"></script>
 </body>
-
 </html>
