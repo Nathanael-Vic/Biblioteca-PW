@@ -53,7 +53,7 @@ async function handleRegister(event) {
     const nome = document.getElementById('register-nome').value;
     const email = document.getElementById('register-email').value;
     const senha = document.getElementById('register-senha').value;
-    const confirmarSenha = document.getElementById('register-confirmar-senha').value; // Pega o valor da confirmação
+    const confirmarSenha = document.getElementById('register-confirmar-senha').value;
     const perfil = document.getElementById('register-perfil').value;
 
     if (senha !== confirmarSenha) {
